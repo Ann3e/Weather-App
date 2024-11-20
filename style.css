@@ -15,10 +15,6 @@ body{
 
 }
 .card{
-  /* display: flex;
-   align-items: center;
-justify-content: center;  
-  border: 2px solid black; */
   width: 90%;
   max-width: 544px;
   margin :100px auto 0;
