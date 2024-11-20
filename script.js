@@ -5,8 +5,22 @@ const searchbox=document.querySelector(".search");
 const searchbtn=document.querySelector(".searchbtn");
 
 async function fetchWeather(city) {
-  const response= await fetch(apiUrl+city+`&appid=${apikey}`);
-  var data= await response.json();
+  try {
+    const response = await fetch(apiUrl + city + `&appid=${apikey}`);
+    
+    if (!response.ok) {
+      throw new Error("City not found");
+    }
+    
+    const data = await response.json();
+    updateWeatherUI(data);
+  } catch (error) {
+    alert("Error: " + error.message);
+  }
+}
+
+async function updateWeatherUI(data) {
+
   const temp=data.main.temp;  
   const humidity=data.main.humidity;
   const windspeed=data.wind.speed;
@@ -16,8 +30,9 @@ async function fetchWeather(city) {
   document.querySelector(".windspeed").innerHTML="windspeed:"+windspeed+"km/hr";
   document.querySelector(".weathericon img").src= "https://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png";
 
+  console.log(data);
   if(data.weather[0].main=="Clear") {
-  document.querySelector(".card").style.backgroundColor = "#bef4ff";
+  document.querySelector(".card").style.backgroundColor = "#B7E0FF";
   }
   else if(data.weather[0].main=="Rain"){
     document.querySelector(".card").style.backgroundColor="#038de1";
@@ -37,8 +52,14 @@ async function fetchWeather(city) {
   document.querySelector(".weather").style.display="block";
 
 }
-searchbtn.addEventListener("click",()=>{
-    fetchWeather(searchbox.value);
 
-})
+searchbtn.addEventListener("click", () => {
+  const city = searchbox.value;
+  if (city) {
+    fetchWeather(city);
+  } else {
+    alert("Please enter a city name");
+  }
+});
+
 

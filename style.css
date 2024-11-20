@@ -1,74 +1,137 @@
-html {
+
+html, body {
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #e1fbff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+body {
+  background-color: #e1fbff;
 }
 
-body{
-   background-color:#e1fbff	;
-
-
-}
-.card{
-  width: 90%;
+.card {
+  width: 100%;
   max-width: 544px;
-  margin :100px auto 0;
-  color: #fff;
+  padding: 40px 35px;
   text-align: center;
-  padding:40px 35px;
-  background-color: #0074b7	;
-  border :2px solid black;
-  border-radius: 20px;
-
-  
-  
-}
-.weather img{
-  background-color: black;
-}
-.search{
-  border-radius: 12px;
-  width: 90%;
-  height: 45px;
-  padding: 24px;
+  background-color: #0074b7;
+  color: #fff;
   border: 2px solid black;
-  flex:1;
-
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
 }
-.searchbar{
-  width: 90%;
+
+.searchbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-
+  margin-bottom: 20px;
 }
+
+.search {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid black;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+}
+
 .searchbtn {
-    padding: 16px 0px 13px 0px;
-    width: 54px;
-    border-radius: 22px;
-    border: 2px solid black;
-    margin-right: -23px;
-    cursor: pointer;
-}
-
-
-.weatherinfo{
+  margin-left: 10px;
+  padding: 12px;
+  width: 54px;
+  height: 48px;
+  border: 2px solid black;
+  border-radius: 12px;
+  background-color: #fff;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  transition: background-color 0.2s ease;
 }
 
-.col{
-  display:flex;
-  
+.searchbtn:hover {
+  background-color: #f0f0f0;
 }
 
-
-.weather{
-  display:none;
+.weather {
+  display: none; /* Hidden by default, shown dynamically */
 }
+
+.weathericon img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.temp {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+.city {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Weather info details */
+.weatherinfo {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+}
+
+.col i {
+  font-size: 1.5rem;
+}
+
+.card:hover {
+	
+  border: 8px double #3a7999;
+
+}
+
+/* Responsive styles */
+/* @media (max-width: 768px) {
+  .card {
+    padding: 20px 15px;
+  }
+
+  .search {
+    font-size: 14px;
+  }
+
+  .temp {
+    font-size: 2rem;
+  }
+
+  .city {
+    font-size: 1.2rem;
+  }
+
+  .col {
+    font-size: 0.9rem;
+  }
+
+  .col i {
+    font-size: 1.2rem;
+  }
+} */
