@@ -5,20 +5,13 @@ const searchbox=document.querySelector(".search");
 const searchbtn=document.querySelector(".searchbtn");
 
 async function fetchWeather(city) {
-  // const response= await fetch(apiUrl+`&q=${city}&appid=${apikey}`); why wrong city
   const response= await fetch(apiUrl+city+`&appid=${apikey}`);
-  // const data= await response.json();
   var data= await response.json();
-
-   // displayWeather(data);
-
-    const temp=data.main.temp;  
-    const humidity=data.main.humidity;
-    const windspeed=data.wind.speed;
-  // document.querySelector(".weather").style.display="block";
-
-    document.querySelector(".city").innerHTML=data.name;
-    document.querySelector(".temp").innerHTML=Math.round(temp)+"°C";
+  const temp=data.main.temp;  
+  const humidity=data.main.humidity;
+  const windspeed=data.wind.speed;
+  document.querySelector(".city").innerHTML=data.name;
+  document.querySelector(".temp").innerHTML=Math.round(temp)+"°C";
   document.querySelector(".humidity").innerHTML="humidity:"+humidity+"%";
   document.querySelector(".windspeed").innerHTML="windspeed:"+windspeed+"km/hr";
   document.querySelector(".weathericon img").src= "https://openweathermap.org/img/wn/"+data.weather[0].icon+"@2x.png";
