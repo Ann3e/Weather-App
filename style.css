@@ -109,29 +109,3 @@ body {
 
 }
 
-/* Responsive styles */
-/* @media (max-width: 768px) {
-  .card {
-    padding: 20px 15px;
-  }
-
-  .search {
-    font-size: 14px;
-  }
-
-  .temp {
-    font-size: 2rem;
-  }
-
-  .city {
-    font-size: 1.2rem;
-  }
-
-  .col {
-    font-size: 0.9rem;
-  }
-
-  .col i {
-    font-size: 1.2rem;
-  }
-} */
